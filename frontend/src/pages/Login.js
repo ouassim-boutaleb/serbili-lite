@@ -32,7 +32,7 @@ export default function Login() {
 
   return (
     <div className="container flex gap-20  w-screen ">
-      <div className="flex  justify-center lg:justify-start items-center lg:gap-48 lg:w-1/2 w-full">
+      <div className="flex  justify-center lg:justify-start items-center lg:gap-30 lg:w-1/2 w-full">
         <div className="">
           <div className="flex flex-col lg:w-[350px]  w-[375px]  ">
             <div className="flex flex-col  lg:mt-12 mt-16 mb-6 ">
