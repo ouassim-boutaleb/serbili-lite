@@ -87,7 +87,7 @@ export default function Login() {
               ) : null}
 
               <Link
-                to="/forgotpassword"
+                to="/forgetpassword"
                 className="text-[#1E4AE9] flex justify-end mt-4"
               >
                 Forgot Password?
