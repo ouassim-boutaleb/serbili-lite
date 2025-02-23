@@ -16,7 +16,7 @@ function ForgetPassword(props) {
                 </div>
                 <div className='bg-[#FF6F00] lg:w-1/2 w-full  px-2 md:px-20 md:py-12 py-0 lg:mx-0 mx-10 '>
                     <div className='flex justify-between items-center mb-4'>
-                        <h3 className='text-2xl lg:text-4xl  font-bold text-white'>Forgot <br /> Password?</h3>
+                        <h3 className='text-2xl lg:text-4xl xl: font-bold text-white'>Forgot <br /> Password?</h3>
                         <img src={logo} alt="" className='xl:w-[90px] w-[70px] lg:w-[75px] ' />
                     </div>
                     <p className='text-white text-sm mb-[60px]'>Don't Worry we Can help</p>
