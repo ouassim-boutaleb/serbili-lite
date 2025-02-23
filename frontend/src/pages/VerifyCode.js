@@ -4,11 +4,11 @@ import * as Yup from "yup";
 import logo from "../assets/icons/logo2.jpg";
 import { Link } from "react-router-dom";
 
-function ForgetPassword(props) {
+function VerifyCode(props) {
   const validationSchema = Yup.object({
-    number: Yup.string()
-      .matches(/^(05|06|07)\d{8}$/, "Invalid phone number format")
-      .required("Number is required"),
+    code: Yup.string()
+      .matches(/^\d{6}$/, "Invalid code format")
+      .required("Code is required"),
   });
 
   return (
@@ -27,10 +27,10 @@ function ForgetPassword(props) {
             <li>Use Alphanumeric passwords</li>
           </ul>
         </div>
-        <div className="bg-[#FF6F00] lg:w-1/2 w-full px-2 md:px-20 md:py-24 py-4 lg:mx-0 mx-10">
-          <div className="flex justify-between items-center mb-4">
+        <div className="bg-[#FF6F00] lg:w-1/2 w-full  px-2 md:px-20 md:py-24 py-4 lg:mx-0 mx-10">
+          <div className="flex justify-between items-center mb-4 ">
             <h3 className="text-2xl lg:text-4xl font-bold text-white">
-              Forgot <br /> Password?
+              Verify your <br /> Code
             </h3>
             <img
               src={logo}
@@ -38,11 +38,12 @@ function ForgetPassword(props) {
               className="xl:w-[90px] w-[70px] lg:w-[75px]"
             />
           </div>
-          <p className="text-white text-[17px] mb-[60px]">
-            Don't Worry we Can help
+          <p className="text-white lg:text-[17px] mb-[40px]">
+            Enter the passcode you just received on your email address ending
+            with *******in@gmail.com
           </p>
           <Formik
-            initialValues={{ number: "" }}
+            initialValues={{ code: "" }}
             validationSchema={validationSchema}
             onSubmit={(values) => {
               console.log(values);
@@ -51,20 +52,20 @@ function ForgetPassword(props) {
           >
             {() => (
               <Form>
-                <label htmlFor="number" className="block mb-2 text-white">
-                  Number
+                <label htmlFor="code" className="block mb-2 text-white">
+                  Code
                 </label>
                 <Field
-                  name="number"
-                  id="number"
+                  name="code"
+                  id="code"
                   className="block w-full py-2 rounded-xl border-[1px] border-black focus:outline-none px-2 md:mb-1 mb-1"
                 />
                 <ErrorMessage
-                  name="number"
+                  name="code"
                   component="div"
                   className="text-red-900 mt-1"
                 />
-                <Link to="/verfiycode">
+                <Link to="/newpassword">
                   <button
                     type="submit"
                     className="py-3 px-5 mt-6 bg-white text-[#FF6F00] font-medium rounded-md float-right"
@@ -81,4 +82,4 @@ function ForgetPassword(props) {
   );
 }
 
-export default ForgetPassword;
+export default VerifyCode;

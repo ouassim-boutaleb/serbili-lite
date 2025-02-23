@@ -1,15 +1,18 @@
 import logo from "../assets/icons/logo.jpg";
-import image from "../assets/images/Login-amico.png"
+import image from "../assets/images/Login-amico.png";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 export default function Login() {
   const validationSchema = Yup.object({
     number: Yup.string()
-      .matches(/^(05|06|07)\d{8}$/,"phone number is not valid")
+      .matches(/^(05|06|07)\d{8}$/, "phone number is not valid")
       .required("Phone Number is required"),
     password: Yup.string()
-      .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,"Password must be at least 8 characters including letters and numbers ")
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+        "Password must be at least 8 characters including letters and numbers "
+      )
       .required("password is required"),
   });
   const formik = useFormik({
@@ -23,16 +26,16 @@ export default function Login() {
       resetForm();
     },
   });
-  
-  const handleblur = (e)=> {
+
+  const handleblur = (e) => {
     e.target.classList.add("blure");
     console.log(e.target.classList);
     formik.handleBlur(e);
-  }
+  };
 
   return (
     <div className="container flex gap-20  w-screen ">
-      <div className="flex  justify-center lg:justify-start items-center lg:gap-30 lg:w-1/2 w-full">
+      <div className="flex  justify-center lg:justify-start items-center lg:gap-24 lg:ml-16 lg:mr-16 lg:w-1/2 w-full">
         <div className="">
           <div className="flex flex-col lg:w-[350px]  w-[375px]  ">
             <div className="flex flex-col  lg:mt-12 mt-16 mb-6 ">
@@ -50,18 +53,22 @@ export default function Login() {
               className="flex flex-col lg:max-w-[397px]  max-w-full"
             >
               <div className="relative  h-10 input">
-              <input
-                className="border-2 rounded-xl p-2 mt-10 bg-transparent w-full h-full absolute bottom-0"
-                type="text"
-                name="number"
-                
-                value={formik.values.number}
-                onChange={formik.handleChange}
-                onBlur={handleblur}
-              />
-              <label htmlFor="number" className="absolute text-gray-400 top-[50%] translate-y-[-50%] left-2 pointer-events-none">Phone Number</label>
+                <input
+                  className="border-2 rounded-xl p-2 mt-10 bg-transparent w-full h-full absolute bottom-0"
+                  type="text"
+                  name="number"
+                  value={formik.values.number}
+                  onChange={formik.handleChange}
+                  onBlur={handleblur}
+                />
+                <label
+                  htmlFor="number"
+                  className="absolute text-gray-400 top-[50%] translate-y-[-50%] left-2 pointer-events-none"
+                >
+                  Phone Number
+                </label>
               </div>
-              
+
               {formik.touched.number && formik.errors.number ? (
                 <div className="text-red-500 text-sm mt-1">
                   {formik.errors.number}
@@ -72,14 +79,18 @@ export default function Login() {
                   className="border-2 rounded-xl p-2 mt-6 w-full absolute bottom-0"
                   type="password"
                   name="password"
-                  
                   value={formik.values.password}
                   onChange={formik.handleChange}
                   onBlur={handleblur}
                 />
-                <label htmlFor="password" className="absolute text-gray-400 top-[50%] translate-y-[-50%] left-2 pointer-events-none">Password</label>
+                <label
+                  htmlFor="password"
+                  className="absolute text-gray-400 top-[50%] translate-y-[-50%] left-2 pointer-events-none"
+                >
+                  Password
+                </label>
               </div>
-              
+
               {formik.touched.password && formik.errors.password ? (
                 <div className="text-red-500 text-sm mt-1">
                   {formik.errors.password}
@@ -175,7 +186,7 @@ export default function Login() {
         </div>
       </div>
       <div className="lg:flex justify-center items-center w-1/2 hidden">
-          <img src={image} className="lg:w-[500px] " alt="" />
+        <img src={image} className="lg:w-[500px] " alt="" />
       </div>
     </div>
   );
